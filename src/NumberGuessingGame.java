@@ -2,69 +2,72 @@ import java.util.Scanner;
 
 public class NumberGuessingGame {
 
-    public static void main (String[]args){
+    public static void main(String[] args) {
         Scanner keyboard;
         int testing;
         int pickednumber;
         String guess;
 
-        keyboard=new Scanner(System.in);
+        keyboard = new Scanner(System.in);
 
-        pickednumber = (int)(Math.random()*100);
-        System.out.println(pickednumber);
+
+        pickednumber = (int) (Math.random() * 100);
+
         System.out.println("pick a number from 1-100");
-        testing=keyboard.nextInt();
-        if (testing<pickednumber) {
-            System.out.println("a little higher");
-        }
+        testing = keyboard.nextInt();
 
-        else if (testing>pickednumber){
-            System.out.println("a little lower");
-        }
+        if (testing != pickednumber) {
 
-        if (testing==pickednumber){
+            if (testing < pickednumber) {
+                System.out.println("a little higher");
+            } else if (testing > pickednumber) {
+                System.out.println("a little lower");
+            }
+
+            System.out.println("Try a different number");
+            testing = keyboard.nextInt();
+            //turn 2
+            if (testing != pickednumber) {
+
+                if (testing < pickednumber) {
+                    System.out.println("too low");
+                } else if (testing > pickednumber) {
+                    System.out.println("too high");
+                }
+
+                System.out.println("One more chance");
+                testing = keyboard.nextInt();
+
+                if (testing < pickednumber) {
+                    System.out.println("too low");
+                } else if (testing > pickednumber) {
+                    System.out.println("too high");
+                } else {
+                    System.out.println("YOU WON!");
+                }
+
+
+                System.out.println("The correct number was...");
+                System.out.println(pickednumber);
+
+            } else if (testing == pickednumber) {
+                System.out.println("YOU WON!");
+            }
+        else {
+                System.out.println("YOU WON!");
+            }
+
+        }
+    else {
             System.out.println("YOU WON!");
         }
-
-        System.out.println("Try a different number");
-        testing=keyboard.nextInt();
-        if (testing<pickednumber) {
-            System.out.println("too low");
-        }
-
-        else if (testing>pickednumber){
-            System.out.println("too high");
-        }
-        if (testing==pickednumber){
-            System.out.println("YOU WON!");
-        }
-
-        System.out.println("One more chance");
-        testing=keyboard.nextInt();
-        if (testing<pickednumber) {
-            System.out.println("too low");
-        }
-
-        else if (testing>pickednumber){
-            System.out.println("too high");
-        }
-        if (testing==pickednumber){
-            System.out.println("YOU WON!");
-        }
-
-
-
-        System.out.println("The correct number was...");
-        System.out.println(pickednumber);
 
     }
 
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
