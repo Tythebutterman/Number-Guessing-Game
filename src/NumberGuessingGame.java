@@ -10,50 +10,51 @@ public class NumberGuessingGame {
 
         keyboard = new Scanner(System.in);
 
+        do {
 
-        pickednumber = (int) (Math.random() * 100);
 
-        System.out.println("pick a number from 1-100");
-        testing = keyboard.nextInt();
-
-        if (testing != pickednumber) {
-
-            if (testing < pickednumber) {
-                System.out.println("a little higher");
-            } else if (testing > pickednumber) {
-                System.out.println("a little lower");
-            }
-
-            System.out.println("Try a different number");
+            pickednumber = (int) (Math.random() * 100);
+System.out.println(pickednumber);
+            System.out.println("pick a number from 1-100");
             testing = keyboard.nextInt();
-            //turn 2
+
             if (testing != pickednumber) {
 
                 if (testing < pickednumber) {
-                    System.out.println("too low");
+                    System.out.println("a little higher");
                 } else if (testing > pickednumber) {
-                    System.out.println("too high");
+                    System.out.println("a little lower");
                 }
 
-                System.out.println("One more chance");
+                System.out.println("Try a different number");
                 testing = keyboard.nextInt();
+                //turn 2
+                if (testing != pickednumber) {
 
-                if (testing < pickednumber) {
-                    System.out.println("too low");
-                } else if (testing > pickednumber) {
-                    System.out.println("too high");
-                } else {
-                    System.out.println("YOU WON!");
+                    if (testing < pickednumber) {
+                        System.out.println("too low");
+                    } else if (testing > pickednumber) {
+                        System.out.println("too high");
+                    }
+
+                    System.out.println("One more chance");
+                    testing = keyboard.nextInt();
+
+                    if (testing < pickednumber) {
+                        System.out.println("too low");
+                    } else if (testing > pickednumber) {
+                        System.out.println("too high");
+                    } else {
+                        System.out.println("YOU WON!");
+                    }
+
                 }
+            }
 
-
-                System.out.println("The correct number was...");
-                System.out.println(pickednumber);
-
-            } else if (testing == pickednumber) {
+          /*  } else if (testing == pickednumber) {
                 System.out.println("YOU WON!");
             }
-        else {
+       /* else {
                 System.out.println("YOU WON!");
             }
 
@@ -61,13 +62,17 @@ public class NumberGuessingGame {
     else {
             System.out.println("YOU WON!");
         }
+*/
+
+            System.out.println("Would you like to play again?");
+            keyboard.nextLine();
+            guess = keyboard.nextLine();
+
+
+
+        } while (!guess.equalsIgnoreCase("no"));
+        System.out.println("The correct number was...");
+        System.out.println(pickednumber);
 
     }
-
 }
-
-
-
-
-
-
